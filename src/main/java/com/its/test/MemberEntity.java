@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name="member_table")
+@Table(name="mem_table")
 public class MemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class MemberEntity {
     private String email;
 
     @Column(length = 20)
-    private String role;
+    private String rolename;
 
     public static MemberEntity toSaveEntity(MemberDTO memberDTO) {
         MemberEntity memberEntity = new MemberEntity();
@@ -34,7 +34,7 @@ public class MemberEntity {
         memberEntity.setPassword(memberDTO.getPassword());
         memberEntity.setSubname(memberDTO.getSubname());
         memberEntity.setEmail(memberDTO.getEmail());
-        memberEntity.setRole("MEMBER");
+        memberEntity.setRolename("ROLE_USER");
         return memberEntity;
     }
 }
